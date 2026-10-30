@@ -2,7 +2,7 @@
 
 ![o11keys — black and gold browser control center](artwork/readme-hero.svg)
 
-**Configure playback systems. Inspect captured keys. Export clean JSON.**
+**Drm Key Generator**
 
 Built by **o11dev**
 
