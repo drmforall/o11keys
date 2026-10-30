@@ -1,6 +1,6 @@
 <div align="center">
 
-![o11keys — black and gold browser control center](artwork/readme-hero.svg)
+![o11keys DRM Key Generator](artwork/readme-hero.svg)
 
 **Drm Key Generator**
 

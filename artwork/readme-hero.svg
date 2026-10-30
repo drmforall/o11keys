@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360" role="img" aria-labelledby="title desc">
   <title id="title">o11keys</title>
-  <desc id="desc">Black and gold o11keys product banner</desc>
+  <desc id="desc">o11keys DRM Key Generator banner</desc>
   <defs>
     <linearGradient id="background" x1="0" y1="0" x2="1200" y2="360" gradientUnits="userSpaceOnUse">
       <stop stop-color="#17120c"/>
@@ -31,10 +31,10 @@
   <circle cx="232" cy="162" r="23" fill="none" stroke="#ffe5ac" stroke-width="8"/>
   <circle cx="232" cy="162" r="7" fill="#ffe5ac"/>
   <path d="M232 186v39m0-20h21m-21 14h14" fill="none" stroke="#ffe5ac" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
-  <text x="400" y="110" fill="#c7a16b" font-family="Segoe UI,Arial,sans-serif" font-size="18" font-weight="700" letter-spacing="6">PRIVATE CONTROL CENTER</text>
+  <text x="400" y="110" fill="#c7a16b" font-family="Segoe UI,Arial,sans-serif" font-size="18" font-weight="700" letter-spacing="6">DRM KEY GENERATOR</text>
   <text x="397" y="206" fill="#f5eee0" font-family="Segoe UI,Arial,sans-serif" font-size="90" font-weight="750" letter-spacing="-6">o11<tspan fill="#f3cd85">keys</tspan></text>
-  <text x="402" y="250" fill="#b7ab98" font-family="Segoe UI,Arial,sans-serif" font-size="23" letter-spacing="1">Precision playback control for Chrome and Firefox</text>
+  <text x="402" y="250" fill="#b7ab98" font-family="Segoe UI,Arial,sans-serif" font-size="23" letter-spacing="1">Widevine · PlayReady · ClearKey</text>
   <path d="M402 277h607" stroke="url(#gold)" stroke-opacity=".75"/>
-  <text x="402" y="309" fill="#e0bd7b" font-family="Segoe UI,Arial,sans-serif" font-size="15" font-weight="700" letter-spacing="2">BLACK / GOLD  ·  O11DEV</text>
+  <text x="402" y="309" fill="#e0bd7b" font-family="Segoe UI,Arial,sans-serif" font-size="15" font-weight="700" letter-spacing="2">O11DEV  ·  CHROME / FIREFOX</text>
   <text x="740" y="309" fill="#a89c8a" font-family="Segoe UI,Arial,sans-serif" font-size="15" letter-spacing="2">MANIFEST V3  ·  v2.3.3</text>
 </svg>
