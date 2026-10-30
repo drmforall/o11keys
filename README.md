@@ -44,6 +44,17 @@ The Firefox ZIP is unsigned. Temporary loading ends when Firefox restarts. Perma
 
 Open the o11keys toolbar button, select a system and device source, then configure a global or site profile. Saved key entries appear in the **Keys** section. Use **Open keys + MPD** to view a capture in its own window, or **Export** for a structured JSON file.
 
+### Included devices
+
+Download the device file you need, then open **Devices** in o11keys and import it as a local device:
+
+| System | Device file |
+| --- | --- |
+| Widevine | [CVTE MT9602 L1](devices/cvte_mt9602_linux_14.0.0_a947440b_22326_l1_20261030_114804.wvd) |
+| PlayReady | [Hisense Smart TV](devices/hisense_smarttv_he55a7000euwts_sl3000_0002.prd) |
+
+These files include device credentials. Anyone with access to this public repository can download them.
+
 Only use device files and content for which you have permission. JSON exports contain sensitive key material; store and share them carefully.
 
 ## Build from source
