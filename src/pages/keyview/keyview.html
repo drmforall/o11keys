@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>o11keys · Key viewer</title>
+    <link rel="stylesheet" href="keyview.css">
+    <script type="module" src="keyview.js" defer></script>
+</head>
+<body>
+    <header>
+        <img src="../../images/icon.png" alt="" width="48" height="48">
+        <div>
+            <small>o11keys / KEY VIEWER</small>
+            <h1 id="title">Loading keys…</h1>
+        </div>
+    </header>
+    <main id="content" hidden>
+        <section>
+            <h2>Browser page</h2>
+            <a id="browserUrl" target="_blank" rel="noopener noreferrer"></a>
+            <p id="capturedPage" hidden></p>
+        </section>
+        <section>
+            <div class="section-heading"><h2>Keys</h2><button type="button" id="copyAll">Copy all</button></div>
+            <div id="keys"></div>
+        </section>
+        <section>
+            <h2>MPD / manifests</h2>
+            <div id="manifests"></div>
+        </section>
+        <button type="button" id="exportJson" class="primary">Export JSON</button>
+    </main>
+    <p id="error" role="alert" hidden></p>
+</body>
+</html>

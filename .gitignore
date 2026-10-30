@@ -1,0 +1,8 @@
+*.zip
+*.xpi
+*.crx
+devices/private
+dist/
+node_modules/
+.chrome-preview/
+ISSUE_REVIEW.md

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>o11keys · Import device</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="filePicker.css">
+    </head>
+    <body>
+        <h1>Import a device</h1>
+        <p>Choose a device file or drop it here to import.</p>
+        <input type="file" id="fileInput" multiple />
+        <script type="module" src="filePicker.js" defer></script>
+        <!--
+            feature primarily made for mobile browsers with broken file picker;
+            put it below sight for normal popup windows on desktops
+        -->
+        <p>Or import from a remote URL:</p>
+        <input type="url" id="urlInput"/>
+        <button id="urlImport">Import</button>
+    </body>
+</html>
