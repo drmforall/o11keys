@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360" role="img" aria-labelledby="title desc">
   <title id="title">o11keys</title>
-  <desc id="desc">o11keys DRM Key Generator banner</desc>
+  <desc id="desc">o11keys DRM Key Generator banner with Widevine support</desc>
   <defs>
     <linearGradient id="background" x1="0" y1="0" x2="1200" y2="360" gradientUnits="userSpaceOnUse">
       <stop stop-color="#17120c"/>
@@ -32,6 +32,9 @@
   <circle cx="232" cy="162" r="7" fill="#ffe5ac"/>
   <path d="M232 186v39m0-20h21m-21 14h14" fill="none" stroke="#ffe5ac" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
   <text x="400" y="110" fill="#c7a16b" font-family="Segoe UI,Arial,sans-serif" font-size="18" font-weight="700" letter-spacing="6">DRM KEY GENERATOR</text>
+  <rect x="897" y="78" width="232" height="50" rx="25" fill="#1b1916" stroke="url(#gold)" stroke-width="1.5"/>
+  <path d="M917 94l6 18 8-13 8 13 6-18" fill="none" stroke="#f3cd85" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="959" y="110" fill="#f3cd85" font-family="Segoe UI,Arial,sans-serif" font-size="18" font-weight="700" letter-spacing="2">WIDEVINE</text>
   <text x="397" y="206" fill="#f5eee0" font-family="Segoe UI,Arial,sans-serif" font-size="90" font-weight="750" letter-spacing="-6">o11<tspan fill="#f3cd85">keys</tspan></text>
   <text x="402" y="250" fill="#b7ab98" font-family="Segoe UI,Arial,sans-serif" font-size="23" letter-spacing="1">Widevine · PlayReady · ClearKey</text>
   <path d="M402 277h607" stroke="url(#gold)" stroke-opacity=".75"/>
