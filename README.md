@@ -14,7 +14,7 @@ Built by **o11dev**
 
 ## The control center
 
-o11keys is a Manifest V3 browser extension with a custom black and gold interface for Widevine, PlayReady, and ClearKey configuration. It supports local and remote device sources, per-site profiles, and a dedicated key viewer.
+o11keys is a Manifest V3 browser extension with a modern UI for Widevine, PlayReady, and ClearKey configuration. It supports local and remote device sources, per-site profiles, and a dedicated key viewer.
 
 | Feature | What it does |
 | --- | --- |
