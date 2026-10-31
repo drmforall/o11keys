@@ -1,6 +1,6 @@
 {
     "name": "o11keys",
-    "version": "2.3.3",
+    "version": "2.3.4",
     "description": "o11keys browser playback control center",
     "main": "build.js",
     "scripts": {

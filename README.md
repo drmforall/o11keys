@@ -6,7 +6,7 @@
 
 Built by **o11dev**
 
-[Download Chrome build](https://github.com/drmforall/o11keys/releases/download/v2.3.3/o11keys-2.3.3.zip) · [Download Firefox build](https://github.com/drmforall/o11keys/releases/download/v2.3.3/o11keys-2.3.3-firefox.zip)
+[Download Chrome build](https://github.com/drmforall/o11keys/releases/download/v2.3.4/o11keys-2.3.4.zip) · [Download Firefox build](https://github.com/drmforall/o11keys/releases/download/v2.3.4/o11keys-2.3.4-firefox.zip)
 
 </div>
 
@@ -28,17 +28,23 @@ o11keys is a Manifest V3 browser extension with a modern UI for Widevine, PlayRe
 
 ### Chrome and Chromium browsers
 
-1. Download the [Chrome ZIP](https://github.com/drmforall/o11keys/releases/download/v2.3.3/o11keys-2.3.3.zip) and extract it.
+1. Download the [Chrome ZIP](https://github.com/drmforall/o11keys/releases/download/v2.3.4/o11keys-2.3.4.zip) and extract it.
 2. Open `chrome://extensions` and enable **Developer mode**.
 3. Choose **Load unpacked** and select the extracted folder containing `manifest.json`.
 
-### Firefox 121+
+### Firefox 140+
 
-1. Download the [Firefox ZIP](https://github.com/drmforall/o11keys/releases/download/v2.3.3/o11keys-2.3.3-firefox.zip).
+1. Download the [Firefox ZIP](https://github.com/drmforall/o11keys/releases/download/v2.3.4/o11keys-2.3.4-firefox.zip).
 2. Open `about:debugging` → **This Firefox** → **Load Temporary Add-on**.
 3. Select the ZIP file, then open o11keys from the extensions menu.
 
 The Firefox ZIP is unsigned. Temporary loading ends when Firefox restarts. Permanent installation in standard Firefox requires Mozilla signing.
+
+### Firefox for Android (preview)
+
+The Firefox build targets Firefox for Android 142+ with Android compatibility metadata, a phone-sized panel and key viewer, and tab fallbacks for features that normally open desktop windows. The key viewer is unavailable in private tabs on Android because the extension cannot guarantee that its new tab will stay private. Chrome for Android cannot load browser extensions.
+
+This build is **unsigned and has not been tested on an Android device**. A normal Firefox for Android installation requires an add-on signed by Mozilla. To test a temporary build with a connected Android device, extract the Firefox ZIP and run `npx web-ext run -t firefox-android --source-dir <extracted-folder>` with Android debugging enabled. Do not treat the ZIP as a ready-to-install Android add-on.
 
 ## Use
 

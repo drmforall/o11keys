@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
   "name": "o11keys",
-  "version": "2.3.3",
-  "version_name": "2.3.3",
+  "version": "2.3.4",
+  "version_name": "2.3.4",
   "description": "A refined playback systems control center.",
   "author": "o11dev",
   "homepage_url": "https://github.com/drmforall/o11keys",
@@ -46,7 +46,7 @@
   "browser_specific_settings": {
     "gecko": {
       "id": "o11keys@extensions.local",
-      "strict_min_version": "58.0"
+      "strict_min_version": "140.0"
     }
   }
 }

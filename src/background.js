@@ -444,14 +444,16 @@ chrome.tabs.onRemoved.addListener((tabId) => {
     delete sessionCnt[tabId];
 });
 
-chrome.windows.onRemoved.addListener(() => {
-    chrome.windows.getAll({ populate: false }, (windows) => {
-        const incognitoWindows = windows.filter(w => w.incognito);
-        if (incognitoWindows.length === 0) {
-            chrome.storage.session.clear();
-        }
+if (chrome.windows?.onRemoved && chrome.windows?.getAll) {
+    chrome.windows.onRemoved.addListener(() => {
+        chrome.windows.getAll({ populate: false }, (windows) => {
+            const incognitoWindows = windows.filter(w => w.incognito);
+            if (incognitoWindows.length === 0) {
+                chrome.storage.session.clear();
+            }
+        });
     });
-});
+}
 
 SettingsManager.getGlobalEnabled().then(enabled => {
     if (!enabled) {

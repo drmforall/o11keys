@@ -423,8 +423,8 @@ export class CustomHandlerManager {
             }
         }
 
-        customDesc.innerHTML = CustomHandlers[customCombobox.value]?.description || "";
-        prCustomDesc.innerHTML = CustomHandlers[prCustomCombobox.value]?.description || "";
+        customDesc.textContent = CustomHandlers[customCombobox.value]?.description || "";
+        prCustomDesc.textContent = CustomHandlers[prCustomCombobox.value]?.description || "";
     }
 
     static selectCustomHandler(name) {
@@ -870,22 +870,24 @@ export async function getBadgeText(tabId = undefined) {
 export async function getForegroundTab() {
     return new Promise((resolve, reject) => {
         chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {
-            if (tabs.length > 0) {
-                resolve(tabs[0]);
-            }
+            if (chrome.runtime.lastError) return reject(new Error(chrome.runtime.lastError.message));
+            if (tabs?.length) return resolve(tabs[0]);
+            reject(new Error("No active browser tab is available."));
         });
     });
 }
 
-export async function openPopup(url, width, height) {
+export async function openPopup(url, width, height, incognito = false) {
     const options = { url };
     if (!chrome.windows?.create || navigator.userAgent.includes("Android") || navigator.userAgent.includes("iPhone OS")) {
+        if (incognito) throw new Error("A private browser tab cannot be guaranteed on this platform.");
         options.active = true;
         return await chrome.tabs.create(options);
     }
     options.type = 'popup';
     options.width = width;
     options.height = height;
+    options.incognito = incognito;
     return await chrome.windows.create(options);
 }
 

@@ -39,5 +39,5 @@
   <text x="402" y="250" fill="#b7ab98" font-family="Segoe UI,Arial,sans-serif" font-size="23" letter-spacing="1">Widevine · PlayReady · ClearKey</text>
   <path d="M402 277h607" stroke="url(#gold)" stroke-opacity=".75"/>
   <text x="402" y="309" fill="#e0bd7b" font-family="Segoe UI,Arial,sans-serif" font-size="15" font-weight="700" letter-spacing="2">O11DEV  ·  CHROME / FIREFOX</text>
-  <text x="740" y="309" fill="#a89c8a" font-family="Segoe UI,Arial,sans-serif" font-size="15" letter-spacing="2">MANIFEST V3  ·  v2.3.3</text>
+  <text x="740" y="309" fill="#a89c8a" font-family="Segoe UI,Arial,sans-serif" font-size="15" letter-spacing="2">MANIFEST V3  ·  v2.3.4</text>
 </svg>

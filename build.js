@@ -45,7 +45,9 @@ function zipSrc(version, browser = 'chrome') {
         const manifest = JSON.parse(fs.readFileSync(path.join(sourceDir, 'manifest.json'), 'utf8'));
         delete manifest.version_name;
         manifest.background = { scripts: ['background.js'], type: 'module' };
-        manifest.browser_specific_settings.gecko.strict_min_version = '121.0';
+        manifest.browser_specific_settings.gecko.strict_min_version = '140.0';
+        manifest.browser_specific_settings.gecko.data_collection_permissions = { required: ['none'] };
+        manifest.browser_specific_settings.gecko_android = { strict_min_version: '142.0' };
         archive.glob('**/*', { cwd: sourceDir, ignore: ['manifest.json'] });
         archive.append(JSON.stringify(manifest, null, 2) + '\n', { name: 'manifest.json' });
     } else {

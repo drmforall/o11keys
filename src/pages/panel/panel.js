@@ -8,7 +8,7 @@ import {
     PRDeviceManager,
     CustomHandlerManager,
     SettingsManager,
-    escapeHTML,
+    openPopup,
     notifyUser,
     isKeyLog
 } from "../../util.js";
@@ -65,7 +65,7 @@ scopeInput.addEventListener('keypress', function (event) {
         toggle.checked = true;
         toggle.disabled = false;
         globalScopeLabel.textContent = "Remove";
-        siteScopeLabel.innerHTML = escapeHTML(hostOverride) + "&lrm;";
+        siteScopeLabel.textContent = hostOverride + "\u200e";
         siteScopeLabel.dataset.hostOverride = hostOverride;
         scopeInput.style.display = 'none';
         loadConfig(hostOverride);
@@ -415,29 +415,29 @@ async function appendLog(result, testDuplicate) {
         <div class="expandableDiv collapsed">
             <a href="#" class="expanded-only removeButton">x</a>
             <label class="always-visible right-bound">
-                URL:<input type="text" class="text-box" value="${escapeHTML(result.url)}"${result.origin ? `title="Origin: ${escapeHTML(result.origin)}"` : ""} readonly>
+                URL:<input type="text" class="text-box url-box" readonly>
             </label>
             <div class="always-visible log-actions">
                 <button type="button" class="open-key-viewer">Open keys + MPD</button>
             </div>
             <label class="expanded-only right-bound">
-                Title:<input type="text" class="text-box" value="${escapeHTML(result.title || '')}" readonly>
+                Title:<input type="text" class="text-box title-box" readonly>
             </label>
             <label class="expanded-only right-bound">
-                Type:<input type="text" class="text-box" value="${getFriendlyType(result.type)}" readonly>
+                Type:<input type="text" class="text-box type-box" readonly>
             </label>
             <label class="expanded-only right-bound">
-                ${result.type === "PLAYREADY" ? "WRM" : "PSSH"}:<input type="text" class="text-box pssh-box" value="${escapeHTML(pssh)}" readonly>
+                <span class="pssh-label"></span>:<input type="text" class="text-box pssh-box" readonly>
             </label>
             <label class="expanded-only right-bound key-copy">
-                <a href="#" title="Click to copy">Keys:</a><input type="text" class="text-box key-box" value="${keyString}" readonly>
+                <a href="#" title="Click to copy">Keys:</a><input type="text" class="text-box key-box" readonly>
             </label>
             <label class="expanded-only right-bound">
-                Date:<input type="text" class="text-box" value="${dateString}" readonly>
+                Date:<input type="text" class="text-box date-box" readonly>
             </label>
-            ${result.sessions?.length > 0 ? `<label class="expanded-only right-bound session-copy">
+            <label class="expanded-only right-bound session-copy">
                 <a href="#" title="Click to copy, right click to remove">Sessions:</a><select class="text-box session-box"></select>
-            </label>` : ''}
+            </label>
             <label class="expanded-only right-bound manifest-copy">
                 <a href="#" title="Click to copy">Manifest:</a><select class="text-box manifest-box"></select>
             </label>
@@ -448,6 +448,16 @@ async function appendLog(result, testDuplicate) {
                 <a href="#" title="Click to copy">Cmd:</a><input type="text" class="text-box command-box" readonly>
             </label>
         </div>`;
+
+    logContainer.querySelector('.url-box').value = result.url || '';
+    if (result.origin) logContainer.querySelector('.url-box').title = `Origin: ${result.origin}`;
+    logContainer.querySelector('.title-box').value = result.title || '';
+    logContainer.querySelector('.type-box').value = getFriendlyType(result.type);
+    logContainer.querySelector('.pssh-label').textContent = result.type === "PLAYREADY" ? "WRM" : "PSSH";
+    logContainer.querySelector('.pssh-box').value = pssh || '';
+    logContainer.querySelector('.key-box').value = keyString;
+    logContainer.querySelector('.date-box').value = dateString;
+    if (!result.sessions?.length) logContainer.querySelector('.session-copy').remove();
 
     const keysInput = logContainer.querySelector('.key-copy');
     keysInput.addEventListener('click', () => {
@@ -461,16 +471,12 @@ async function appendLog(result, testDuplicate) {
         } });
         const url = chrome.runtime.getURL(`pages/keyview/keyview.html?id=${encodeURIComponent(token)}`);
         try {
-            await new Promise((resolve, reject) => {
-                chrome.windows.create({
-                    url, type: 'popup', width: 640, height: 720,
-                    incognito: !!currentTab.incognito
-                }, window => {
-                    if (chrome.runtime.lastError) reject(new Error(chrome.runtime.lastError.message));
-                    else resolve(window);
-                });
-            });
+            await openPopup(url, 640, 720, !!currentTab.incognito);
         } catch (error) {
+            if (currentTab.incognito) {
+                notifyUser('o11keys', 'The key viewer cannot safely open in a private tab on this browser.');
+                return;
+            }
             console.warn('Popup window unavailable; opening key viewer in a tab.', error);
             await chrome.tabs.create({ url });
         }
@@ -744,7 +750,9 @@ document.addEventListener('DOMContentLoaded', async function () {
     try {
         // Probe ClearKey support
         // Tor Browser might return a never-resolving promise on RMKSA so use a timeout
-        await timeoutPromise(navigator.requestMediaKeySystemAccess('org.w3.clearkey', configs), 3000);
+        if (!/\bAndroid\b/i.test(navigator.userAgent)) {
+            await timeoutPromise(navigator.requestMediaKeySystemAccess('org.w3.clearkey', configs), 3000);
+        }
         overlay.style.display = 'none';
 
         const { devicesCollapsed, commandsCollapsed, advancedCollapsed } = await SettingsManager.getUICollapsed();
@@ -760,7 +768,7 @@ document.addEventListener('DOMContentLoaded', async function () {
         currentTab = await getForegroundTab();
         const host = new URL(currentTab.url).host;
         if (host) {
-            siteScopeLabel.innerHTML = escapeHTML(host) + "&lrm;";
+            siteScopeLabel.textContent = host + "\u200e";
             if (await SettingsManager.profileExists(host)) {
                 toggle.checked = true;
             }
